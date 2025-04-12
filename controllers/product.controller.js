@@ -17,16 +17,17 @@ exports.create = async (req, res) => {
   }
 };
 
-// Lấy sản phẩm theo ID Mongo (_id)
+// Lấy sản phẩm theo ID
 exports.getById = async (req, res) => {
   try {
-    const product = await Product.findById(req.params.id);
+    const product = await Product.findOne({ id: req.params.id }); // dùng trường id tự tạo
     if (!product) return res.status(404).json({ message: 'Product not found' });
     res.json(product);
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
 };
+
 
 // Cập nhật sản phẩm
 exports.update = async (req, res) => {
