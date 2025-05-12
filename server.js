@@ -8,7 +8,7 @@ const cors = require('cors');
 const productRoutes = require('./routes/product.routes');
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
-
+const reviewRoutes = require('./routes/reviewRoutes');
 dotenv.config();
 
 const app = express();
@@ -19,6 +19,7 @@ app.use(express.json());
 app.use('/api/products', productRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/reviews', reviewRoutes);
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
@@ -28,3 +29,5 @@ mongoose.connect(process.env.MONGO_URI)
     );
   })
   .catch((err) => console.error('MongoDB error:', err));
+
+console.log(require('crypto').randomBytes(64).toString('hex'));
