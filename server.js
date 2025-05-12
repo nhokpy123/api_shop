@@ -30,4 +30,3 @@ mongoose.connect(process.env.MONGO_URI)
   })
   .catch((err) => console.error('MongoDB error:', err));
 
-console.log(require('crypto').randomBytes(64).toString('hex'));
