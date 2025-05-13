@@ -10,9 +10,9 @@ const {
 } = require('../controllers/userController');
 
 
-router.get('/', authMiddleware, getAllUsers);
-router.get('/:id', authMiddleware, getUserById);
-router.put('/:id', authMiddleware, updateUser);
-router.delete('/:id', authMiddleware, requireAdmin, deleteUser);
+router.get('/', getAllUsers);
+router.get('/:id', getUserById);
+router.put('/:id', updateUser);
+router.delete('/:id', requireAdmin, deleteUser);
 
 module.exports = router;
